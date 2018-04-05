@@ -1,0 +1,27 @@
+plugins {
+    id 'org.jetbrains.intellij' version '0.3.1'
+}
+
+group 'me.codeboy.plugin'
+version '1.0.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+intellij {
+    version '2018.1'
+}
+patchPluginXml {
+    changeNotes """
+      First Commit.<br>
+      <em>Welcome to visit <a href='https://www.codeboy.me'>https://www.codeboy.me</a></em>"""
+}
