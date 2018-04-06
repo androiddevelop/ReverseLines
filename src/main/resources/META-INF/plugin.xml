@@ -9,22 +9,26 @@
     ]]></description>
 
     <depends>com.intellij.modules.lang</depends>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <idea-version since-build='10.0.1'/>
 
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
 
     <actions>
-        <action id="InverseLines.OperationAction" class="me.codeboy.plugin.inverselines.InverseLinesAction"
-                text="Reverse Selected Lines" description="Reverse Selected Lines">
-            <add-to-group group-id="EditSelectWordGroup" anchor="after" relative-to-action="EditorUnSelectWord"/>
-            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta shift R"/>
-            <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta shift R"/>
-            <keyboard-shortcut keymap="Default for XWin" first-keystroke="alt shift R"/>
-            <keyboard-shortcut keymap="Default for KDE" first-keystroke="alt shift R"/>
-            <keyboard-shortcut keymap="Default for GNOME" first-keystroke="alt shift R"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="alt shift R"/>
-        </action>
+        <group id="ReverseLines" text="ReverseLines">
+            <action id="ReverseLines.OperationAction" class="me.codeboy.plugin.reverselines.ReverseLinesAction"
+                    text="Reverse Selected Lines" description="Reverse Selected Lines">
+                <add-to-group group-id="EditSelectWordGroup" anchor="after"
+                              relative-to-action="EditorUnSelectWord"/>
+                <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorToggleColumnMode"/>
+                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta shift R"/>
+                <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta shift R"/>
+                <keyboard-shortcut keymap="Default for XWin" first-keystroke="alt shift R"/>
+                <keyboard-shortcut keymap="Default for KDE" first-keystroke="alt shift R"/>
+                <keyboard-shortcut keymap="Default for GNOME" first-keystroke="alt shift R"/>
+                <keyboard-shortcut keymap="$default" first-keystroke="alt shift R"/>
+            </action>
+        </group>
     </actions>
 </idea-plugin>

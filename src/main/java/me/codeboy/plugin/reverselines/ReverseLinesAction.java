@@ -1,4 +1,4 @@
-package me.codeboy.plugin.inverselines;
+package me.codeboy.plugin.reverselines;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -7,16 +7,15 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
-import com.intellij.openapi.editor.VisualPosition;
 import com.intellij.openapi.project.Project;
 
 /**
  * inverse lines
  * Created by yuedong.li on 2018/4/5.
  */
-public class InverseLinesAction extends AnAction {
+public class ReverseLinesAction extends AnAction {
 
-    public InverseLinesAction() {
+    public ReverseLinesAction() {
         super("InverseLines");
     }
 
@@ -37,18 +36,37 @@ public class InverseLinesAction extends AnAction {
         if (editor != null) {
             SelectionModel selectionModel = editor.getSelectionModel();
             Document document = editor.getDocument();
-            VisualPosition startVisualPosition = selectionModel.getSelectionStartPosition();
-            VisualPosition endVisualPosition = selectionModel.getSelectionEndPosition();
-            //only one row selected
-            if (startVisualPosition == null || endVisualPosition == null || startVisualPosition.line == endVisualPosition.line) {
+            String selectText = selectionModel.getSelectedText();
+            if (selectText == null || !selectText.contains("\n")) {
                 return;
             }
 
-            //
-            int startLine = startVisualPosition.line;
-            int endLine = endVisualPosition.line;
+            int startLine = -1;
+            int endLine = -1;
+            int startOffset = selectionModel.getSelectionStart();
+            int endOffset = selectionModel.getSelectionEnd();
+
             String source = document.getText();
             String[] lines = source.split("\\n");
+            int len = 0;
+            for (int i = 0; i < lines.length; i++) {
+                if (startOffset >= len) {
+                    startLine = i;
+                }
+                if (endOffset >= len) {
+                    endLine = i;
+                }
+                if (len > startOffset && len > endOffset) {
+                    break;
+                }
+                len = len + lines[i].length() + 1;
+            }
+
+            //only one line was selected
+            if (startLine == endLine) {
+                return;
+            }
+
             int middleLine = (startLine + endLine) / 2;
             for (int i = startLine; i <= middleLine; i++) {
                 int matchPosition = startLine + endLine - i;
@@ -72,6 +90,7 @@ public class InverseLinesAction extends AnAction {
             WriteCommandAction.runWriteCommandAction(project, () ->
                     document.replaceString(0, source.length(), resultStr)
             );
+            selectionModel.removeSelection();
         }
     }
 }
