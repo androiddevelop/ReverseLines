@@ -1,5 +1,5 @@
 # ReverseLines
-idea plugins for reverse lines.
+idea plugin for reverse lines.
 
 ### Example
 
@@ -28,7 +28,7 @@ list.add("a");
 
 #### steps: 
 what you need to do is as follows:
-1. select the part you want to reverse. In the above example, select the line 2 to line 7.
+1. select the part you want to reverse. In the above example, select the lines 2 to 7.
 2. click edit menu and select【Reverse Selected Lines】 Or right click and select【Reverse Selected Lines】 Or simply press the 【command + shift + r 】shortcut
 
 
