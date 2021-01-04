@@ -29,13 +29,13 @@ list.add("a");
 #### steps: 
 what you need to do is as follows:
 1. select the part you want to reverse. In the above example, select the line 2 to line 7.
-2. click edit menu and select【Reverse Selected Lines】 Or right click and select【Reverse Selected Lines】 Or simply press the 【command + shift + r 】shortcut
+2. click edit menu and select【Reverse Lines】Or right click and select【Reverse Lines】Or simply press the 【command + shift + r 】shortcut
 
 
 ### License
 
 ```
-Copyright 2018 Yuedong.li
+Copyright 2020 Yuedong.li
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

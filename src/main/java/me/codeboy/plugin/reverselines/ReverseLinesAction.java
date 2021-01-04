@@ -10,23 +10,23 @@ import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
 
 /**
- * inverse lines
+ * reverse lines
  * Created by yuedong.li on 2018/4/5.
  */
 public class ReverseLinesAction extends AnAction {
 
     public ReverseLinesAction() {
-        super("InverseLines");
+        super("Reverse Lines");
     }
 
     @Override
     public void update(AnActionEvent e) {
         Editor editor = e.getData(PlatformDataKeys.EDITOR);
-        if (editor != null)
+        if (editor != null) {
             e.getPresentation().setEnabled(true);
-        else
+        } else {
             e.getPresentation().setEnabled(false);
-
+        }
     }
 
     @Override

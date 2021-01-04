@@ -1,11 +1,10 @@
 plugins {
-    id 'org.jetbrains.intellij' version '0.3.1'
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.6.5'
 }
 
 group 'me.codeboy.plugin'
-version '1.0.0'
-
-apply plugin: 'java'
+version '1.1.0'
 
 sourceCompatibility = 1.8
 
@@ -18,7 +17,7 @@ dependencies {
 }
 
 intellij {
-    version '2018.1'
+    version '2020.1.1'
 }
 patchPluginXml {
     changeNotes """

@@ -8,17 +8,17 @@
     <em>reverse lines of selected text.</em>
     ]]></description>
 
-    <depends>com.intellij.modules.lang</depends>
-    <version>1.0.1</version>
-    <idea-version since-build='10.0.1'/>
+    <version>1.1.0</version>
+    <idea-version since-build='201.7223'/>
+    <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
 
     <actions>
-        <group id="ReverseLines" text="ReverseLines">
+        <group id="ReverseLines" text="Reverse Lines">
             <action id="ReverseLines.OperationAction" class="me.codeboy.plugin.reverselines.ReverseLinesAction"
-                    text="Reverse Selected Lines" description="Reverse Selected Lines">
+                    text="Reverse Selected Lines" description="Reverse selected lines">
                 <add-to-group group-id="EditSelectWordGroup" anchor="after"
                               relative-to-action="EditorUnSelectWord"/>
                 <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorToggleColumnMode"/>
