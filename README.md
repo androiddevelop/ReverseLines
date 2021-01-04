@@ -1,5 +1,5 @@
 # ReverseLines
-idea plugins for reverse lines.
+idea plugin for reverse lines.
 
 ### Example
 
